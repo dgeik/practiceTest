@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1fr6c32yexs1"]
+
+[ext_resource type="PackedScene" uid="uid://rlq5hwrw102d" path="res://player/player.tscn" id="2_hdoxk"]
+[ext_resource type="Texture2D" uid="uid://s58swi5yafn3" path="res://map.png" id="2_qpf01"]
+[ext_resource type="PackedScene" uid="uid://gs87arhqs1f" path="res://enemy/enemy.tscn" id="3_7hldh"]
+[ext_resource type="PackedScene" uid="uid://djy2e87i8gevg" path="res://finish.tscn" id="4_4m4pu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5ji7"]
+texture = ExtResource("2_qpf01")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, -0.972272)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, 4.99394)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.37002, -8, 5.12652)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, -0.972272)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, -0.972272)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, 4.99394)
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.08233, -8, 4.99394)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.37002, -8, 5.12652)
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.37002, -8, 5.12652)
+
+[sub_resource type="TileSet" id="TileSet_wr2c0"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/2 = SubResource("TileSetAtlasSource_a5ji7")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [2, Vector2i(0, 0)], [0, Vector2i(1, 0)], [2, Vector2i(1, 0)], [0, Vector2i(2, 0)], [2, Vector2i(2, 0)], [1, Vector2i(0, 0)], [2, Vector2i(3, 0)], [1, Vector2i(0, 1)], [2, Vector2i(3, 1)], [1, Vector2i(1, 0)], [2, Vector2i(4, 0)], [1, Vector2i(1, 1)], [2, Vector2i(4, 1)], [1, Vector2i(2, 0)], [2, Vector2i(5, 0)], [1, Vector2i(2, 1)], [2, Vector2i(5, 1)]]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_hdoxk")]
+position = Vector2(1422, -12)
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(4.265, 4.265)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_wr2c0")
+format = 2
+layer_0/tile_data = PackedInt32Array(87, 196610, 0, 88, 262146, 0, 89, 327682, 0, -65444, 65538, 0, -65443, 65538, 0, -65442, 65538, 0, -65441, 65538, 0, -65445, 2, 0, -65440, 131074, 0, -262039, 2, 0, -262038, 65538, 0, -262037, 131074, 0, -262034, 2, 0, -262033, 65538, 0, -262032, 131074, 0, 131179, 2, 0, 131180, 65538, 0, 131181, 65538, 0, 131182, 131074, 0, -327565, 2, 0, -327564, 131074, 0, -196507, 2, 0, -196506, 131074, 0, 65648, 2, 0, 65649, 65538, 0, 65650, 65538, 0, 65651, 65538, 0, 65652, 65538, 0, 65653, 65538, 0, 65654, 65538, 0, 65655, 131074, 0, 120, 2, 0, 121, 65538, 0, 122, 131074, 0, -196491, 2, 0, -196490, 65538, 0, -196489, 131074, 0, -65411, 196610, 1, -65410, 262146, 1, -65409, 327682, 1, 65634, 2, 0, 65635, 65538, 0, 65636, 65538, 0, 65637, 65538, 0, 65638, 65538, 0, 65639, 65538, 0, 65640, 131074, 0, -130973, 2, 0, -130972, 131074, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_7hldh")]
+position = Vector2(1530, -25)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_7hldh")]
+position = Vector2(1808, 6)
+
+[node name="finish" parent="." instance=ExtResource("4_4m4pu")]
+position = Vector2(2025, -22)

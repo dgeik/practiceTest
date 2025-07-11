@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbcuigtbmp25x"]
+
+[ext_resource type="Texture2D" uid="uid://cyd6us6ok56cq" path="res://ui/health empty.png" id="1_k2dln"]
+[ext_resource type="Script" path="res://ui/main_activity.gd" id="1_rtrcc"]
+[ext_resource type="Texture2D" uid="uid://bgfr23g4yj61k" path="res://ui/health.png" id="2_d3b1k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1e6t"]
+font_size = 12
+
+[node name="MainActivity" type="CanvasLayer"]
+offset = Vector2(20, 20)
+scale = Vector2(3.5, 3.5)
+transform = Transform2D(3.5, 0, 0, 3.5, 20, 20)
+script = ExtResource("1_rtrcc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.28
+anchor_bottom = 0.273
+offset_right = -0.559998
+offset_bottom = 0.095993
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KilledEnemies" type="Label" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Enemies:"
+label_settings = SubResource("LabelSettings_t1e6t")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+max_value = 6.0
+value = 6.0
+texture_under = ExtResource("1_k2dln")
+texture_progress = ExtResource("2_d3b1k")
